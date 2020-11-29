@@ -18,13 +18,13 @@ class SellingProducts extends Migration
            $table->unsignedBigInteger('id_user');
            $table->foreign('id_user')->references('id')->on('users');
 
-           $table->unsignedBigInteger('id_commision');
-           $table->foreign('id_commision')->references('id')->on('commisions');
+           $table->unsignedBigInteger('id_commission');
+           $table->foreign('id_commission')->references('id')->on('commissions');
 
            $table->unsignedBigInteger('id_product');
            $table->foreign('id_product')->references('id')->on('products');
 
-           $table->float('price');
+           $table->decimal('price');
            $table->timestamps();
        });
    }

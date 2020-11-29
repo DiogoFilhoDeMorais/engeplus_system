@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.78.1">
-    <title>Signin Template · Bootstrap</title>
+    <title>Login | Engeplus</title>
     <link rel="canonical" href="http://localhost:8000">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('css/assets/dist/css/bootstrap.min.css') }}" rel="stylesheet"
