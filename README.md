@@ -29,3 +29,24 @@ Uma empresa de tecnologia possui a necessidade de controlar as vendas e comissõ
     b. SQL para criação das tabelas do banco de dados.
 
 3. Se desejar, informe suas observações a respeito do desenvolvimento do projeto, justificando suas escolhas tecnológicas.
+
+
+
+
+
+# Como Instalar
+
+Após ter todo o ambiente pronto para rodar aplicações PHP/MySQL e ter o Composer instalado, crie um base de dados no MySQL chamada **engeplus_system**, com charset **utf8mb4** e collation **utf8mb4_unicode_ci**.
+
+Agora, abra um terminal na pasta raiz do projeto e digite os seguintes comandos:
+
+```composer install```
+
+```php artisan key:generate```
+
+```php artisan migrate --seed```
+
+```php artisan serve```
+
+Agora acesse a [página local](http://localhost:8000) do projeto.
+
