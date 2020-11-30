@@ -24,6 +24,12 @@ class HomeController extends Controller
         # Set page title
         $title = "Dashboard | Home | Engeplus";
 
+        # Get all services
+        $get_services = DB::table('services')->get();
+
+        # Get all products
+        $get_products = DB::table('products')->get();
+
         # Get all database service sales
         $selling_services = DB::table('selling_services')
         ->join('commissions', 'commissions.id', 'selling_services.id_commission')
@@ -34,6 +40,7 @@ class HomeController extends Controller
             'services.name',
             'selling_services.price', 
             'commissions.commission',
+            'selling_services.created_at'
         ])->get();
 
         # Preparing to filter product sales informations
@@ -120,9 +127,20 @@ class HomeController extends Controller
             ];
         }
 
-        # return $user_comm_array;
+        # Formating final services prices to brazilian money format
+        foreach ($selling_services as $selling) {
+            $selling->price = number_format($selling->price, 2, ',', '.');
+        }
 
+        # Formating final products prices to brazilian money format
+        foreach ($selling_products as $selling) {
+            $selling->price = number_format($selling->price, 2, ',', '.');
+        }
+
+        # Sending data to home view
         return view('home.index', compact(
+            'get_services',
+            'get_products',
             'title', 
             'total_sell_prod',
             'total_comm_prod',
@@ -131,7 +149,9 @@ class HomeController extends Controller
             'total_comm_ser',
             'total_sell_ser_final',
             'users',
-            'user_comm_array'
+            'user_comm_array',
+            'selling_services',
+            'selling_products'
         ));
     }
 

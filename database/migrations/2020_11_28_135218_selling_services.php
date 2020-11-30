@@ -25,6 +25,7 @@ class SellingServices extends Migration
            $table->foreign('id_service')->references('id')->on('services');
 
            $table->decimal('price');
+
            $table->timestamps();
        });
    }
